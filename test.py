@@ -1,14 +1,14 @@
-import requests
+import requests, json
 
-def metodoon(data, pair_sum):
+def metodoon(data, suma_alturas):
     arr_pos = []
     hashTable = {}
     coincidencia = 0
 
     for i in range(len(data)):
-        complement = pair_sum - int(data[i]['h_in'])
+        complement = suma_alturas - int(data[i]['h_in'])
         if complement in hashTable:
-            print("Jugadores que suman altura a", pair_sum,"son: (",(data[i]['first_name']),(data[i]['last_name']),int(data[i]['h_in']),")")
+            print("Jugadores que suman altura a", suma_alturas,"son: (",(data[i]['first_name']),(data[i]['last_name']),int(data[i]['h_in']),")")
             coincidencia = 1
             arr_pos.append(i)
         hashTable [int(data[i]['h_in'])] = int(data[i]['h_in'])
@@ -29,10 +29,17 @@ def peticion(entrada):
         print("no se encontraron coincidencias")
 
 def main():
-    print("Ingresa un valor númerico: ") 
-    entrada = int(input()) # Variable que almae
-    http = peticion(entrada)
-    print(http)
-
+     while True: 
+        try:
+            entrada = int(input("Ingresa un valor númerico: ")) # Variable que almae 
+        except ValueError:
+            print("ERROR ESO NO ES UN ENTERO, INGRESA UN NUMERO ENTERO")
+            continue
+        else:
+            http = peticion(entrada)
+            busqueda = ""
+            break
+    #http = peticion(entrada)
+    
 if __name__ == "__main__":
     main()
