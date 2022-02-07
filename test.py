@@ -1,9 +1,14 @@
-import requests, json
+import requests
 
+
+# Método que recibe los valores json y la entrada.
 def metodoon(data, suma_alturas):
-    arr_pos = []
-    hashTable = {}
-    coincidencia = 0
+    arr_pos = [] # Esta lista guarda la posición donde va a buscar posteriormente que jugadores encontró.
+    hashTable = {} # Este diccionario es la tabla de valores que guarda los valores existentes recorridos para luego se evaluados en la resta
+    coincidencia = 0 # Flag coincidencia encontrada.
+
+    # El siguiente for realiza la resta del valor encontrado en la lista values especificamente en h_in para luego hacer una evaluación si el 
+    # valor producto de la resta entre la suma de alturas y el valor de h_in se encuentra en hash table para identificar una pareja.
 
     for i in range(len(data)):
         complement = suma_alturas - int(data[i]['h_in'])
@@ -15,6 +20,8 @@ def metodoon(data, suma_alturas):
 
     return arr_pos,coincidencia
 
+
+# Método que recibe la entrada.
 def peticion(entrada):
 
     url = "https://mach-eight.uc.r.appspot.com/"
@@ -28,6 +35,8 @@ def peticion(entrada):
     if c == False:
         print("no se encontraron coincidencias")
 
+
+# Método que inicializador
 def main():
      while True: 
         try:
@@ -37,9 +46,9 @@ def main():
             continue
         else:
             http = peticion(entrada)
-            busqueda = ""
             break
-    #http = peticion(entrada)
     
+
+# Main del proyecto.
 if __name__ == "__main__":
     main()
