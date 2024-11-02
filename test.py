@@ -2,8 +2,7 @@ import requests
 
 
 # Método que recibe los valores json y la entrada.
-def metodoon(data, suma_alturas):
-    arr_pos = [] # Esta lista guarda la posición donde va a buscar posteriormente que jugadores encontró.
+def metodoon(data,suma_alturas):
     hashTable = {} # Este diccionario es la tabla de valores que guarda los valores existentes recorridos para luego se evaluados en la resta
     coincidencia = 0 # Flag coincidencia encontrada.
 
@@ -11,14 +10,14 @@ def metodoon(data, suma_alturas):
     # valor producto de la resta entre la suma de alturas y el valor de h_in se encuentra en hash table para identificar una pareja.
 
     for i in range(len(data)):
+        #print(data[i]['h_in'])
         complement = suma_alturas - int(data[i]['h_in'])
         if complement in hashTable:
-            print("Jugadores que suman altura a", suma_alturas,"son: (",(data[i]['first_name']),(data[i]['last_name']),int(data[i]['h_in']),")")
-            coincidencia = 1
-            arr_pos.append(i)
-        hashTable [int(data[i]['h_in'])] = int(data[i]['h_in'])
+            print("Jugadores que suman altura a", suma_alturas,"son: -", hashTable[complement],"  ",(data[i]['first_name']),(data[i]['last_name']))
+            coincidencia = True
+        hashTable [int(data[i]['h_in'])] = data[i]['first_name'] +" "+ data[i]['last_name']
 
-    return arr_pos,coincidencia
+    return coincidencia
 
 
 # Método que recibe la entrada.
@@ -30,9 +29,9 @@ def peticion(entrada):
     data1 = respuesta.json() #se almacena la informacion general en una variable
     data = data1['values'] # se extrae solo los datos dentro de la lista value para poder acceder a las alutras y los nombres 
     
-    p,c = metodoon(data, entrada) # se pasan data por parametro a la funcion junto con el valor ingresado por el usuario
+    c = metodoon(data,entrada) # se pasan data por parametro a la funcion junto con el valor ingresado por el usuario
     
-    if c == False:
+    if (c == False):
         print("no se encontraron coincidencias")
 
 
