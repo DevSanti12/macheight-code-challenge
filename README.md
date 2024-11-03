@@ -19,7 +19,7 @@ El funcionamiento del siguiente proyecto:
 5. Ejecutar el comando: python test.py
 6. Luego de que se lance el comando, el programa le pedirá que escriba una entrada que debe ser tipo entero(en caso de que ingrese cadenas texto, le saldrá un error)
 7. Después de que ingrese el valor númerico, el programa hará lo solicitado por la prueba y le dará el resultado esperado teniendo en cuenta que sea el valor: 139
-8. La salida del programa, será: los jugadores que suman altura de 139 son: (nombre, apellido, altura).
+8. La salida del programa, será la esperada (nombre, apellido).
 
 
 
