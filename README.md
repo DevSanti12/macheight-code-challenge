@@ -1,15 +1,3 @@
-# Prueba SW Jr Maceight
-
-## Acerca de mi
-
-Mi nombre es Santiago Leyva, soy Ingeniero Electrónico. Me gusta todo lo que tenga que ver con tecnología y software; a menudo trato de aprender sobre ellas por gusto y por buscar mejores oportunidades. 
-
-Cuentos con analísis crítico, pensamiento abstracto, razonamiento para buscar soluciones y traspasarlas a código.
-
-Me gustaría hacer parte del equipo Maceight.
-
-## Proyecto
-
 El funcionamiento del siguiente proyecto:
 
 1. Clonar el repositorio
